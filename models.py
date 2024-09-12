@@ -31,8 +31,8 @@ class Student(Base):
 class Teacher(Base):
     __tablename__ = "teachers"
     
-    id = Column(Integer(), primary_key=True, default=uuid4)
+    id = Column(String(), primary_key=True, default=lambda: str(uuid4()))
     name = Column(String())
-    
+
 
 
