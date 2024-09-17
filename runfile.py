@@ -1,9 +1,9 @@
 from sqlalchemy import create_engine
-from models import Base, Course, Teacher
+from models import Base, Course, Teacher, Employee
 from sqlalchemy.orm import sessionmaker
 
-our_db_engine = create_engine('sqlite:///school.db')
-Base.metadata.create_all(our_db_engine)
+our_db_engine = create_engine('sqlite:///schools.db')
+# Base.metadata.create_all(our_db_engine)
 sessionObj = sessionmaker(bind=our_db_engine)
 current_session = sessionObj()
 
@@ -16,9 +16,14 @@ current_session = sessionObj()
 # all_courses = current_session.query(Course).all()
 # print(all_courses)
 
-tr1 = Teacher(name="Mercy")
-current_session.add(tr1)
+# tr1 = Teacher(name="Peter")
+# current_session.add(tr1)
+# current_session.commit()
+
+emp1 = Employee(name="Mercy", id_no=7896586, bank="KCB", department="Finance")
+current_session.add(emp1)
 current_session.commit()
+
 
 
 
